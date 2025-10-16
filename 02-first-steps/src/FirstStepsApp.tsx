@@ -1,6 +1,33 @@
 import type { CSSProperties } from "react"
 import ItemCounter from "./shopping-cart/ItemCounter"
 
+
+interface ItemInCart {
+    productName: string,
+    quantity: number
+}
+
+const itemsInCart: ItemInCart[] = [
+
+    {
+        productName: "Nintendo Switch 2",
+        quantity: 1
+    },
+
+    {
+        productName: "Play",
+        quantity: 3
+    },
+
+    {
+        productName: "Xbox",
+        quantity: 5
+    }
+
+]
+
+
+
 export const Componente1 = () => { //Crear un componente con una arrow function
     return (
         <>
@@ -20,8 +47,19 @@ export const Componente1 = () => { //Crear un componente con una arrow function
 export function FirstComponent() { //Crear un componente con una  function
     return (
         <>
-        <h1>Carrito de compras</h1>
-        <ItemCounter/>
+            <h1>Carrito de compras</h1>
+
+
+            {
+                itemsInCart.map((item) => (
+                    <ItemCounter key={item.productName} name={item.productName} quantity={item.quantity} />))
+            }
+
+
+
+            {/* <ItemCounter name ="Nintendo Switch2" quantity={1}/>
+        <ItemCounter name ="xbox"quantity={2}/>
+        <ItemCounter name ="play" quantity={5}/> */}
         </>
     )
 }
