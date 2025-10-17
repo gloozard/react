@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 
-// import "./ItemCounter.css"
+import "./ItemCounter.css"
 
 interface Props {
   name: string,
